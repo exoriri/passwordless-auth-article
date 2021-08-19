@@ -15,7 +15,7 @@ const Auth = () => {
         try {
             await firebase.auth().sendSignInLinkToEmail(email, {
               url: `${window.location.origin}/dashboard`,
-              handleCodeInApp: true,
+              handleCodeInApp: true
             });
             window.localStorage.setItem('email', email);
             setMessage('Ссылка для входа отправлена на почту');

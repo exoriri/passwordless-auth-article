@@ -18,8 +18,6 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        const searchParams = new URLSearchParams(window.location.search);
-        const apiKey = searchParams.get('apiKey');
         const email = window.localStorage.getItem('email');
 
         const fbSignIn = async () => {
@@ -28,7 +26,7 @@ const Dashboard = () => {
         };
         
         if (!window.localStorage.getItem('token') && !firebase.auth().currentUser) {
-            if (apiKey && firebase.auth().isSignInWithEmailLink(window.location.href)) {
+            if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
                 fbSignIn()
                     .then(async fbResult => {
                         const tokenResult = await fbResult.user.getIdTokenResult();
