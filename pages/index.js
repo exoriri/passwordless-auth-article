@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import firebase from '../firebase';
 import styles from './index.module.css';
-console.log(firebase)
+
 const Auth = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
